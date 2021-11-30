@@ -1,0 +1,11 @@
+## Interface: 20502
+## Title: Ravilan
+## Author: Ravilan
+## Version: 1.0.0
+## Notes: Customizations to ElvUI
+## RequiredDeps: ElvUI_GennUI
+## DefaultState: Enabled
+
+media\media.xml
+addons\addons.xml
+main.lua
