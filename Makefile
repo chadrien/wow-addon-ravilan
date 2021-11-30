@@ -8,7 +8,8 @@ ifndef VERSION
 endif
 	@git diff --quiet; \
 		[ $$? -eq 0 ] || { echo "There are uncommitted changes."; exit 1; }
-	@zip -r $(RELEASE_ZIP_NAME) . -x ".git/*" -x "Makefile" -x "README.md" -qq
+	@rsync -a . Ravilan --exclude Ravilan --exclude .git --exclude Makefile --exclude README.md
+	@zip -r $(RELEASE_ZIP_NAME) Ravilan -q
 	@git tag $(VERSION)
 	@gh release create $(VERSION) $(RELEASE_ZIP_NAME) --notes ""
-	@rm $(RELEASE_ZIP_NAME)
+	@rm -rf $(RELEASE_ZIP_NAME) Ravilan
